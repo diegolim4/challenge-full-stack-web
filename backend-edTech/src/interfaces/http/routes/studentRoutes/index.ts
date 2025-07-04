@@ -1,17 +1,18 @@
 import { Router } from 'express';
 import { StudentController } from '../../controllers/StudentCtrl';
+import { adminAuth } from '../../../../middlewares/adminAuth';
 
 const studentRouter = Router()
 const studentCtrl = new StudentController();
 
-studentRouter.post('/students', studentCtrl.create)
+studentRouter.post('/students', adminAuth, studentCtrl.create)
 
-studentRouter.get('/students', studentCtrl.get)
+studentRouter.get('/students', adminAuth, studentCtrl.get)
 
-studentRouter.get('/students/:key', studentCtrl.getUnique)
+studentRouter.get('/students/:key', adminAuth, studentCtrl.getUnique)
 
-studentRouter.put('/students/:id', studentCtrl.update)
+studentRouter.put('/students/:id', adminAuth, studentCtrl.update)
 
-studentRouter.delete('/students/:id', studentCtrl.delete)
+studentRouter.delete('/students/:id', adminAuth, studentCtrl.delete)
 
 export default studentRouter

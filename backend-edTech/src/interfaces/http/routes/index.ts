@@ -3,13 +3,12 @@ import checkRouter from './checkRoutes';
 import studentRouter from './studentRoutes';
 import adminRouter from './adminRoutes';
 import authRouter from './authRoutes';
-import { adminAuth } from '../../../middlewares/adminAuth';
 
 const router = Router();
 
 router.use('/api', checkRouter);
-router.use('/api', adminAuth, studentRouter);
-router.use('/api', adminAuth, adminRouter);
-router.use('/api', adminAuth, authRouter);
+router.use('/api', studentRouter);
+router.use('/api', adminRouter);
+router.use('/api', authRouter);
 
 export default router;
