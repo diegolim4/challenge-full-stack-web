@@ -63,4 +63,88 @@ O servidor irá rodar por padrão na porta definida no `.env` (ex: http://localh
 - Certifique-se que o banco PostgreSQL está rodando antes de iniciar o backend.
 - As migrations devem ser aplicadas sempre que o schema Prisma for alterado.
 
+
+## 📌 Endpoints da API
+
+### 🧑‍🎓 **Estudantes (`/students`)**
+
+#### 🔹 Criar estudante
+
+- **URL:** `POST /api/students`
+- **Body:**
+```json
+{
+  "fullName": "Goku da Silva",
+  "email": "goku@email.com",
+  "document": "12345678901"
+}
+```
+
+#### 🔹 Listar todos os estudantes
+
+- **URL:** `GET /api/students`
+
+#### 🔹 Buscar estudante por e-mail ou RA
+
+- **URL:** `GET /api/students/:param`
+- **Exemplo:** `/api/students/joao@email.com`
+
+#### 🔹 Atualizar estudante
+
+- **URL:** `PUT /api/students/:id`
+- **Body:**
+```json
+{
+  "fullName": "Vegeta Atualizado",
+  "email": "vegeta@email.com",
+  "status": true,
+  "createdBy": "id do admin" 
+}
+```
+
+#### 🔹 Deletar estudante
+
+- **URL:** `DELETE /api/students/:id`
+
+---
+
+### 🔐 **Administradores (`/admin`)**
+
+#### 🔹 Criar administrador
+
+- **URL:** `POST /api/admin`
+- **Body:**
+```json
+{
+  "fullName": "Admin",
+  "email": "admin@email.com",
+  "password": "123456",
+  "status": true
+}
+```
+
+#### Buscar administrador por e-mail
+
+- **URL:** `GET /api/admin/:email`
+
+
+### **Autenticação via Header**
+
+Para acessar as rotas protegidas (como criação, listagem e remoção de estudantes), é necessário enviar no header da requisição a **chave de acesso (accessKey)** de um admin autorizado.
+
+#### Exemplo de uso no header:
+
+```http
+Authorization: cmcmvlaqr0000rdjes5bg5vrj
+```
+
+Ou, em `cURL`:
+
+```bash
+curl -X GET http://localhost:3000/api/students \
+  -H "Authorization: cmcmvlaqr0000rdjes5bg5vrj"
+```
+
+> Substitua o valor da `accessKey` por uma chave válida cadastrada previamente.
+
 ---
