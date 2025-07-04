@@ -37,8 +37,8 @@ Ajuste `usuario`, `senha`, `localhost`, `porta` e `nome_do_banco` conforme sua c
 5. Gere o cliente Prisma e rode as migrations:
 
 ```bash
-yarn prisma generate
-yarn prisma migrate dev --name init
+npx prisma generate
+npx prisma migrate dev --name init
 ```
 
 ## Rodando o servidor
@@ -54,9 +54,9 @@ O servidor irá rodar por padrão na porta definida no `.env` (ex: http://localh
 
 ## Comandos úteis
 
-- `yarn prisma studio` — abre interface gráfica para visualizar o banco de dados
-- `yarn prisma migrate dev` — cria e executa migrations no banco
-- `yarn prisma generate` — gera o cliente Prisma
+- `npx prisma studio` — abre interface gráfica para visualizar o banco de dados
+- `npx prisma migrate dev` — cria e executa migrations no banco
+- `npx prisma generate` — gera o cliente Prisma
 
 ## Observações
 
