@@ -43,7 +43,7 @@ function getStoredClientData() {
 
 function getAccessKey() {
     const client = getStoredDataWithExpirationCheck('client');
-    return client?.accessKey || 'cmcmvlaqr0000rdjes5bg5vrj';
+    return client?.accessKey;
 }
 
 function getIdAdmin() {
